@@ -1,0 +1,2 @@
+2025-08-08T12:27:21.950+05:30 ERROR 76068 --- [http-nio-9090-exec-1] c.e.logdemo.controller.HomeController    : --Error--
+2025-08-08T12:27:21.951+05:30  WARN 76068 --- [http-nio-9090-exec-1] c.e.logdemo.controller.HomeController    : --WARN--
