@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>City Dropdown</title>
+</head>
+<body>
+
+<h2>City Dropdown Example</h2>
+
+<!-- Button to trigger -->
+<button onclick="populateDropdown()">Show Cities</button>
+
+<!-- Dropdown -->
+<select id="cityDropdown">
+    <option value="">-- Select a City --</option>
+</select>
+
+<script>
+    // Unordered array of city names
+    let cities = ["Mumbai", "Delhi", "Pune", "Bangalore", "Chennai", "Kolkata"];
+
+    function populateDropdown() {
+        let dropdown = document.getElementById("cityDropdown");
+
+        // Clear old options except the first
+        dropdown.length = 1; 
+
+        // Sort the cities alphabetically
+        let sortedCities = cities.slice().sort();
+
+        // Add each city as an option
+        sortedCities.forEach(function(city) {
+            let option = document.createElement("option");
+            option.value = city;
+            option.text = city;
+            dropdown.appendChild(option);
+        });
+    }
+</script>
+
+</body>
+</html>

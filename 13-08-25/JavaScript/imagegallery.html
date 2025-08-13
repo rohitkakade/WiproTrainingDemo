@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Image Gallery</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: #f4f4f4;
+            padding-top: 40px;
+        }
+
+        img {
+            width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            margin: 15px;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+       
+    </style>
+</head>
+
+<body>
+
+    <h2>Image Gallery</h2>
+    <img id="galleryImage" src="" alt="Gallery Image"><br>
+
+    <button onclick="prevImage()">Prev</button>
+    <button onclick="nextImage()">Next</button>
+
+    <script>
+        // Array of image URLs
+        let images = [
+            "https://i.pinimg.com/736x/c4/9c/b3/c49cb3c1f3a05ec06ed4b43ca7fc0c81.jpg",
+            "https://cdn.pixabay.com/photo/2024/02/28/07/42/european-shorthair-8601492_640.jpg",
+            "https://t3.ftcdn.net/jpg/12/33/58/16/360_F_1233581696_LXmRBtyxmQHRU010hUXJfDRU4aXaMAyR.jpg",
+            "https://images.pexels.com/photos/1870376/pexels-photo-1870376.jpeg?cs=srgb&dl=pexels-larissa-barbosa-945746-1870376.jpg&fm=jpg"
+        ];
+
+        let index = 0;
+
+        // Function to display current image
+        function showImage() {
+            document.getElementById("galleryImage").src = images[index];
+        }
+
+        // Next Image
+        function nextImage() {
+            index = (index + 1) % images.length;
+            showImage();
+        }
+
+        // Previous Image
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage();
+        }
+
+        // Show the first image initially
+        showImage();
+    </script>
+
+</body>
+
+</html>

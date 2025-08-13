@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 30px;
+        }
+        .quiz-container {
+            background: white;
+            max-width: 500px;
+            margin: auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .option {
+            display: block;
+            background: #007BFF;
+            color: white;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        .feedback {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        #nextBtn {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: green;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: none;
+        }
+       
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <h2 id="question">Question will go here</h2>
+    <div id="options"></div>
+    <p id="feedback" class="feedback"></p>
+    <button id="nextBtn" onclick="nextQuestion()">Next Question</button>
+    <p>Score: <span id="score">0</span></p>
+</div>
+
+<script>
+    // Questions Array
+    const questions = [
+        {
+            question: "Which is My Fev Pet",
+            options: ["Dog", "Parrot", "Cat", "Rabbit"],
+            answer: "Cat"
+        },
+        {
+            question: "Which Muscle I Love To Train",
+            options: ["Chest", "Back", "Legs", "Shoulder"],
+            answer: "Chest"
+        },
+        {
+            question: "Which Is My fev Dish'?",
+            options: ["Paneer", "Oats", "Daal", "Pizza"],
+            answer: "Oats"
+        }
+    ];
+
+    let currentQuestionIndex = 0;
+    let score = 0;
+
+    function loadQuestion() {
+        const currentQuestion = questions[currentQuestionIndex];
+        document.getElementById("question").innerText = currentQuestion.question;
+        const optionsDiv = document.getElementById("options");
+        optionsDiv.innerHTML = "";
+        document.getElementById("feedback").innerText = "";
+        document.getElementById("nextBtn").style.display = "none";
+
+        currentQuestion.options.forEach(option => {
+            const button = document.createElement("button");
+            button.innerText = option;
+            button.classList.add("option");
+            button.onclick = () => checkAnswer(option);
+            optionsDiv.appendChild(button);
+        });
+    }
+
+    function checkAnswer(selectedOption) {
+        const currentQuestion = questions[currentQuestionIndex];
+        if (selectedOption === currentQuestion.answer) {
+            document.getElementById("feedback").innerText = "✅ Correct!";
+            score++;
+            document.getElementById("score").innerText = score;
+        } else {
+            document.getElementById("feedback").innerText = "❌ Wrong!";
+        }
+        document.getElementById("nextBtn").style.display = "inline-block";
+        document.querySelectorAll(".option").forEach(btn => btn.disabled = true);
+    }
+
+    function nextQuestion() {
+        currentQuestionIndex++;
+        if (currentQuestionIndex < questions.length) {
+            loadQuestion();
+        } else {
+            document.querySelector(".quiz-container").innerHTML = `
+                <h2>Quiz Completed!</h2>l
+                <p>Your Score: ${score} / ${questions.length}</p>
+            `;
+        }
+    }
+
+    // Load first question
+    loadQuestion();
+</script>
+
+</body>
+</html>

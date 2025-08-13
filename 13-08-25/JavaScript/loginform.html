@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login Form Validation</title>
+    <link rel="stylesheet" href="loginform.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    
+    <!-- Email -->
+    <label>Email:</label><br>
+    <input type="text" id="email" onblur="validateEmail()">
+    <span id="emailError" class="error">Please enter a valid email</span>
+    <br><br>
+
+    <!-- Password -->
+    <label>Password:</label><br>
+    <input type="password" id="password" onblur="validatePassword()">
+    <span id="passwordError" class="error">Password cannot be empty</span>
+    <br><br>
+
+    <button onclick="handleLogin()">Login</button>
+</div>
+
+<script src="loginscript.js"></script>
+</body>
+</html>
