@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSS Override Demo</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <h1>Universal & Group Selector Effect</h1>
+  
+  <p>This paragraph is affected by both the universal  and group  selectors.</p>
+  
+  <p class="highlight">
+    This paragraph has the <b>.highlight</b> class, so it’s blue and bold, overriding gray from * selector.
+  </p>
+  
+  <p id="special" class="highlight">
+    This one has both <b>.highlight</b> and <b>#special</b> —  
+    ID selector overrides the class’s blue color with red, but keeps the bold.
+  </p>
+  
+  <div class="highlight">
+    This div also uses the highlight class — blue and bold text.
+  </div>
+
+</body>
+</html>

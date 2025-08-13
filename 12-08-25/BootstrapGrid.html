@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bootstrap Grid Layout</title>
+  <!-- Bootstrap CSS CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    .border-dotted {
+      border: 3px dotted #333;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container mt-4">
+
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12 border-dotted">
+      <h1>Header Section (Full Width)</h1>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="row">
+    <div class="col-md-8 border-dotted">
+      <h2>Main Content (8 columns)</h2>
+      <p>This is the main content area.</p>
+    </div>
+    <div class="col-md-4 border-dotted">
+      <h2>Sidebar (4 columns)</h2>
+      <p>This is the sidebar area.</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="row">
+    <div class="col-12 border-dotted">
+      <h3>Footer Section (Full Width)</h3>
+    </div>
+  </div>
+
+</div>
+
+<!-- Bootstrap JS Bundle CDN (Optional) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

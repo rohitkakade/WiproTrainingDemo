@@ -1,0 +1,12 @@
+body {
+  background-color: white;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 50px auto;
+  padding: 30px;
+  background: rgb(79, 206, 200);
+  /* border-radius: 8px; */
+  
+}

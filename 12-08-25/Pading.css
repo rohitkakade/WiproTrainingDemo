@@ -1,0 +1,13 @@
+.pad {
+  /* padding shifts the text inside */
+  padding: 10px 20px 5px 90px; /* top right bottom left */
+}
+
+.brdr {
+  border: 5px solid blue;
+}
+
+.mrgn {
+  /* margin shifts the entire div */
+  margin: 100px 20px 30px 40px; /* top right bottom left */
+}

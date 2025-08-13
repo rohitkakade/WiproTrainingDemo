@@ -1,0 +1,131 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+    background-color: #fff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: #2a7ae2;
+}
+img{
+    height: 500px;
+    width: 500px;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Header */
+header {
+    background: #2a7ae2;
+    color: white;
+    padding: 10px 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+}
+
+/* Hero Section */
+.hero {
+    background: url('https://via.placeholder.com/1200x400') no-repeat center center/cover;
+    color: white;
+    
+    text-align: center;
+}
+
+.meta {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* Main Layout */
+.container {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+.intro {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.main-content img {
+    width: 100%;
+    margin: 10px 0;
+}
+
+.cta {
+    background: #2a7ae2;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.cta:hover {
+    background: #1d5fbf;
+}
+
+/* Sidebar */
+.sidebar {
+    background: #f9f9f9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.about-author img {
+    border-radius: 50%;
+}
+
+.social-links a {
+    font-size: 0.9rem;
+}
+
+/* Footer */
+footer {
+    background: #2a7ae2;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+.about-author{
+    box-sizing: 10px;
+}
+.icon{
+    height: 200px;
+    width: 200px;
+}
