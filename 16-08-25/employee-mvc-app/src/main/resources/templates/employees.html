@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employees</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+<h1>Employee List</h1>
+
+<form method="get" th:action="@{/employees}">
+    <input type="text" name="q" th:value="${q}" placeholder="Search by name">
+    <button type="submit">Search</button>
+    <a th:href="@{/employees}">Clear</a>
+</form>
+
+<p><a th:href="@{/employees/add}">Add New Employee</a></p>
+
+<table border="1" cellpadding="6">
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Department</th>
+        <th>City</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="emp : ${employees}">
+        <td th:text="${emp.id}"></td>
+        <td th:text="${emp.name}"></td>
+        <td th:text="${emp.type}"></td>
+        <td th:text="${emp.department != null ? emp.department.name : ''}"></td>
+        <td th:text="${emp.address != null ? emp.address.city : ''}"></td>
+        <td>
+            <a th:href="@{'/employees/edit/' + ${emp.id}}">Edit</a> |
+            <a th:href="@{'/employees/delete/' + ${emp.id}}"
+               onclick="return confirm('Delete this employee?')">Delete</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
