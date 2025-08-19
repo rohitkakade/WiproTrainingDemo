@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Employee Form</title>
+    <link rel="stylesheet" th:href="@{/css/style.css}" href="/css/style.css"/>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        form {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 400px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-top: 10px;
+            color: #555;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        input:focus, select:focus {
+            outline: none;
+            border-color: #007bff;
+            box-shadow: 0 0 5px rgba(0,123,255,0.3);
+        }
+
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 15px;
+            margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 100%;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        a {
+            display: inline-block;
+            text-align: center;
+            margin-top: 15px;
+            text-decoration: none;
+            color: #555;
+            font-size: 14px;
+        }
+
+        a:hover {
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h1 th:text="${employee.id == null} ? 'Add Employee' : 'Edit Employee'"></h1>
+    <form th:action="${employee.id == null} ? @{/employees/add} : @{/employees/edit}" th:object="${employee}" method="post">
+        <input type="hidden" th:field="*{id}"/>
+        <label>Name:</label>
+        <input type="text" th:field="*{name}" required/>
+        
+        <label>Type:</label>
+        <select th:field="*{type}">
+            <option value="Regular">Regular</option>
+            <option value="Contract">Contract</option>
+        </select>
+        
+        <label>Department Name:</label>
+        <input type="text" th:field="*{department.name}"/>
+        
+        <label>Address Street:</label>
+        <input type="text" th:field="*{address.street}"/>
+        
+        <label>City:</label>
+        <input type="text" th:field="*{address.city}"/>
+        
+        <label>State:</label>
+        <input type="text" th:field="*{address.state}"/>
+        
+        <label>Zip:</label>
+        <input type="text" th:field="*{address.zip}"/>
+        
+        <button type="submit">Save</button>
+        <a th:href="@{/employees}">Cancel</a>
+    </form>
+</div>
+</body>
+</html>
